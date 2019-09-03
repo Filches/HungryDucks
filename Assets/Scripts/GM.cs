@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
+    public float gameTime;
     public List<int> scores;
     public int WhiteLives = 3, BrownLives = 3, GreenLives = 3, YellowLives = 3, WhiteScore = 0, BrownScore = 0, GreenScore = 0, YellowScore = 0;
     public float resetDelay = 1f;
@@ -24,7 +25,7 @@ public class GM : MonoBehaviour
     {
         winnerBox = GameObject.Find("GM/WIN/White").GetComponent<Text>();
 
-        Invoke("Winning", 10);
+        Invoke("Winning", gameTime);
     }
 
     public void GainPointWhite()

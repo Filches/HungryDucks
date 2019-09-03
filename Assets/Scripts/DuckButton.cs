@@ -7,9 +7,13 @@ public class DuckButton : MonoBehaviour
     public KeyCode DuckButt;
     Animator anim;
     GM gm;
+    AudioSource quack;
+
+    public AudioClip quake;
 
     void Start()
     {
+        quack = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         gm = GameObject.Find("GM").GetComponent<GM>();
     }
@@ -25,6 +29,8 @@ public class DuckButton : MonoBehaviour
             if (Input.GetKeyUp(DuckButt))
             {
                 anim.SetBool("PoopBool", false);
+                quack.pitch = Random.Range(0.8f, 1.2f);
+                quack.PlayOneShot(quake);
             }
 
             if (gameObject.tag == "WhiteDuck")
